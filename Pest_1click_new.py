@@ -7,17 +7,8 @@ from datetime import date
 from openpyxl import load_workbook
 import time
 
-""" Login First """
-#login_url="http://environmental.puritylabsinc.com:8080/Purity/login_form"
-#input_lst=soup.find_all("input") # Login token is saved in one "input" tag
-#for i in range(0,len(input_lst)):
- #   if input_lst[i].has_attr("name")==True and input_lst[i]["name"]=="_authenticator":
-        #token=input_lst[i]["value"]
-  #  else:
-   #     pass
-
 """ Get Sample ID List"""
-print(r'Only Works for Kirkman Samples with "DS-" IDs')
+print(r'Only Works for xxx Samples with "DS-" IDs')
 time.sleep(2)
 sp_count=int(input('How many GC samples are you running?\n'))
 sp_url_list=[]
@@ -29,7 +20,7 @@ while logic.lower()== 'no':
         sp_id=str(input('Please Enter Sample ID: '))## Sample ID
         sp_id=sp_id.upper()
         sp_id_list.append(sp_id)
-        sp_url="http://environmental.puritylabsinc.com:8080/Purity/clients/client-116/"+sp_id
+        sp_url="http://xxx/xxx/"+sp_id
         sp_url_list.append(sp_url)
     time.sleep(1)
     print('\nGC Samples:')
@@ -40,8 +31,8 @@ while logic.lower()== 'no':
 """ Get GC Method """
 md=str(input("GC Method File Is EXP_:"))
 
-""" Access Sample Web """
-login_info={"__ac_name":"YYan","__ac_password":"Purity#1!"}
+""" Access Sample Web with Login """
+login_info={"__ac_name":"xxx","__ac_password":"xxx"}
 data=parse.urlencode(login_info)
 asciidata=data.encode('ascii')
 opener=request.build_opener()
@@ -97,7 +88,7 @@ df_sp["Lot Number"]=sp_lot_list
 df_sp["BuB"]=sp_bub_list
 df_sp["Received Date"]=sp_rec_list
 
-path=r"C:\Users\yyan\Documents\Data\Pesticide\Sequence_log.xlsx"
+path=r"C:\Users\xxx\Documents\Sequence_log.xlsx"
 book=load_workbook(path)
 writer=pd.ExcelWriter(path,engine='openpyxl')
 writer.book=book
